@@ -10,10 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var timerPicker: UIDatePicker!
     private var timer = Timer()
-    
+    var duration = 0.0
+    var secondsPassed = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +31,25 @@ class ViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         
-    }
-    
-    @IBAction func cancelPressed(_ sender: UIButton) {
         timer.invalidate()
         progressBar.progress = 0.0
+        secondsPassed = 0
         
+        duration = timerPicker.countDownDuration
+        let formatter = DateComponentsFormatter()
+        let formattedDuration = formatter.string(from: duration)
+        print(duration)
+        print(formattedDuration!)
+        
+        let completionTime = Calendar.current.date(byAdding: .second, value: Int(duration), to: Date())
+        print(completionTime!)
+        
+    
+        
+        func cancelPressed(_ sender: UIButton) {
+            timer.invalidate()
+            
+        }
     }
+    
 }
-

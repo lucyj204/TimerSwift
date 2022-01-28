@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-th-Nl8">
-                                <rect key="frame" x="47" y="160.5" width="320" height="575.5"/>
+                                <rect key="frame" x="47" y="117.5" width="320" height="661"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsR-aS-fch">
                                         <rect key="frame" x="52.5" y="0.0" width="215.5" height="33.5"/>
@@ -25,17 +25,23 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-10-zje">
+                                        <rect key="frame" x="155" y="98.5" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7T-S0-pE4">
-                                        <rect key="frame" x="0.0" y="98.5" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="184" width="320" height="216"/>
                                         <connections>
                                             <action selector="timerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mvv-uS-Qcs"/>
                                         </connections>
                                     </datePicker>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1ly-p2-ULq">
-                                        <rect key="frame" x="20" y="379.5" width="280" height="4"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="1ly-p2-ULq">
+                                        <rect key="frame" x="20" y="465" width="280" height="4"/>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
-                                        <rect key="frame" x="116" y="448.5" width="88" height="127"/>
+                                        <rect key="frame" x="116" y="534" width="88" height="127"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-nC-4zV">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="31"/>
@@ -67,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="progressBar" destination="1ly-p2-ULq" id="8gp-f2-eK2"/>
+                        <outlet property="timeLabel" destination="2QK-10-zje" id="fxm-pK-BMZ"/>
                         <outlet property="timerPicker" destination="y7T-S0-pE4" id="Ec9-AA-oNf"/>
                     </connections>
                 </viewController>
