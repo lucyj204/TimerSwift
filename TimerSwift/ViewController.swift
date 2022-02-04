@@ -19,19 +19,14 @@ class ViewController: UIViewController {
     private var timer = Timer()
     private var player: AVAudioPlayer!
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        view.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    
     @IBAction func startPressed(_ sender: UIButton) {
-        
         let hours = Int(hourTextField.text!) ?? 0
         let hoursToSeconds = hours * 3600
         let minutes = Int(minuteTextField.text!) ?? 0
@@ -43,11 +38,9 @@ class ViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
         timer.fire()
-        
     }
     
     @objc func updateCountdown() {
-        
         let now = Date()
         let timeRemaining = calculateTimeDifference(startTime: now, completionTime: completionTime!)
         let displayHours = Int(timeRemaining) / 3600
@@ -55,50 +48,38 @@ class ViewController: UIViewController {
         let displaySeconds = Int(timeRemaining) % 60
         
         if timeRemaining > 0 {
-            
             timeLabel.text = String(format: "%02i:%02i:%02i", displayHours, displayMinutes, displaySeconds)
             hourTextField.text = ""
             minuteTextField.text = ""
             secondsTextField.text = ""
-            
         } else {
-            
             timeLabel.text = "00:00:00"
             playSound()
             timer.invalidate()
-            
         }
     }
     
     
     @IBAction func cancelPressed(_ sender: UIButton) {
-        
         completionTime = Date()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: false)
-        
     }
     
     
     @objc func dismissKeyboard() {
-        
         view.endEditing(true)
         print("tap gesture recognised")
-        
     }
     
     func playSound() {
-        
         let url = Bundle.main.url(forResource: "kitty", withExtension: "mp3")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
-        
     }
 }
 
 
 func calculateTimeDifference(startTime: Date, completionTime: Date) -> TimeInterval {
-    
     return completionTime.timeIntervalSinceNow - startTime.timeIntervalSinceNow
-    
 }
 

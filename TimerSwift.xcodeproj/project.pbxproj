@@ -11,9 +11,9 @@
 		13A53B1327A2E85500C8590C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1227A2E85500C8590C /* SceneDelegate.swift */; };
 		13A53B1527A2E85500C8590C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1427A2E85500C8590C /* ViewController.swift */; };
 		13A53B1827A2E85500C8590C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A53B1627A2E85500C8590C /* Main.storyboard */; };
-		13A53B1A27A2E85700C8590C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A53B1927A2E85700C8590C /* Assets.xcassets */; };
 		13A53B1D27A2E85700C8590C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A53B1B27A2E85700C8590C /* LaunchScreen.storyboard */; };
 		13A53B2727A9A8EF00C8590C /* kitty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13A53B2627A9A8EE00C8590C /* kitty.mp3 */; };
+		13A53B4F27AD7B2000C8590C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A53B4E27AD7B2000C8590C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +22,10 @@
 		13A53B1227A2E85500C8590C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		13A53B1427A2E85500C8590C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		13A53B1727A2E85500C8590C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		13A53B1927A2E85700C8590C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13A53B1C27A2E85700C8590C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13A53B1E27A2E85700C8590C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13A53B2627A9A8EE00C8590C /* kitty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kitty.mp3; sourceTree = "<group>"; };
+		13A53B4E27AD7B2000C8590C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AppIcons (5)/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				13A53B1227A2E85500C8590C /* SceneDelegate.swift */,
 				13A53B1427A2E85500C8590C /* ViewController.swift */,
 				13A53B1627A2E85500C8590C /* Main.storyboard */,
-				13A53B1927A2E85700C8590C /* Assets.xcassets */,
+				13A53B4E27AD7B2000C8590C /* Assets.xcassets */,
 				13A53B2627A9A8EE00C8590C /* kitty.mp3 */,
 				13A53B1B27A2E85700C8590C /* LaunchScreen.storyboard */,
 				13A53B1E27A2E85700C8590C /* Info.plist */,
@@ -130,8 +130,8 @@
 			files = (
 				13A53B2727A9A8EF00C8590C /* kitty.mp3 in Resources */,
 				13A53B1D27A2E85700C8590C /* LaunchScreen.storyboard in Resources */,
-				13A53B1A27A2E85700C8590C /* Assets.xcassets in Resources */,
 				13A53B1827A2E85500C8590C /* Main.storyboard in Resources */,
+				13A53B4F27AD7B2000C8590C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
