@@ -14,16 +14,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var hourTextField: UITextField!
     @IBOutlet weak var minuteTextField: UITextField!
     @IBOutlet weak var secondsTextField: UITextField!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     
+    let defaults = UserDefaults.standard
+    
+    private let now = Date()
     private var completionTime: Date?
     private var timer = Timer()
     private var player: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("view did load")
+        
+        completionTime = defaults.value(forKey: "timeRemaining") as? Date
+        print("view did load \(String(describing: completionTime))")
+        
+        if completionTime != now {
+            updateCountdownFollowingAppReOpened()
+        }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    func updateCountdownFollowingAppReOpened() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+        timer.fire()
+        
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -33,8 +53,8 @@ class ViewController: UIViewController {
         let minutesToSeconds = minutes * 60
         let seconds = Int(secondsTextField.text!) ?? 0
         let duration = hoursToSeconds + minutesToSeconds + seconds
-        let now = Date()
-        self.completionTime = Calendar.current.date(byAdding: .second, value: duration, to: now)
+        completionTime = Calendar.current.date(byAdding: .second, value: duration, to: now)
+        defaults.set(self.completionTime, forKey: "timeRemaining")
         
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
         timer.fire()
@@ -53,7 +73,7 @@ class ViewController: UIViewController {
             minuteTextField.text = ""
             secondsTextField.text = ""
         } else {
-            timeLabel.text = "00:00:00"
+            timeLabel.text = "Meow! Timer finished!"
             playSound()
             timer.invalidate()
         }
