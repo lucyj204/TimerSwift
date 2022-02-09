@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class TimerViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var hourTextField: UITextField!
@@ -39,6 +39,12 @@ class ViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return false
     }
+    
+    @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "setTimer", sender: self)
+    }
+    
     
     private func updateCountdownFollowingAppReOpened() {
         let now = Date()
