@@ -18,32 +18,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     let defaults = UserDefaults.standard
-    
-    private let now = Date()
+    let now = Date()
     private var completionTime: Date?
     private var timer = Timer()
     private var player: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did load")
-        
         completionTime = defaults.value(forKey: "timeRemaining") as? Date
-        print("view did load \(String(describing: completionTime))")
-        
-        if completionTime != now {
-            updateCountdownFollowingAppReOpened()
-        }
-        
+        updateCountdownFollowingAppReOpened()
+        print("didLoad \(now)")
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    func updateCountdownFollowingAppReOpened() {
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
-        timer.fire()
-        
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    private func updateCountdownFollowingAppReOpened() {
+        let now = Date()
+        if completionTime! > now {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+            timer.fire()
+            print("update countdown if\(now)")
+        } else {
+            timeLabel.text = "00:00:00"
+            defaults.set(self.completionTime, forKey: "timeRemaining")
+            print("update countdown else\(now)")
+        }
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -53,6 +60,7 @@ class ViewController: UIViewController {
         let minutesToSeconds = minutes * 60
         let seconds = Int(secondsTextField.text!) ?? 0
         let duration = hoursToSeconds + minutesToSeconds + seconds
+        let now = Date()
         completionTime = Calendar.current.date(byAdding: .second, value: duration, to: now)
         defaults.set(self.completionTime, forKey: "timeRemaining")
         
@@ -81,17 +89,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func cancelPressed(_ sender: UIButton) {
-        completionTime = Date()
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: false)
+        completionTime = now
+        print("cancel pressed \(now)")
+        defaults.set(self.completionTime, forKey: "timeRemaining")
     }
-    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
-        print("tap gesture recognised")
     }
     
-    func playSound() {
+    private func playSound() {
         let url = Bundle.main.url(forResource: "kitty", withExtension: "mp3")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
