@@ -7,46 +7,65 @@
 
 import UIKit
 
-class SetTimerViewController: UIViewController, UITextFieldDelegate {
+
+class SetTimerViewController: UIViewController {
     
     @IBOutlet weak var timerCreationView: UIView!
-    @IBOutlet weak var timerName: UITextField!
     @IBOutlet weak var selectTimerLengthLabel: UILabel!
     @IBOutlet weak var timerPickerView: UIPickerView!
     @IBOutlet weak var setTimerButton: UIButton!
     @IBOutlet weak var cancelTimerButton: UIButton!
     
+    var onSetTime: ((_ data: Int) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         timerCreationView.layer.cornerRadius = 15
         timerCreationView.layer.masksToBounds = true
-        timerName.delegate = self
         timerPickerView.delegate = self
         timerPickerView.dataSource = self
+    }
+    
+    func updateTimerLabelInSetTimer() {
+        let hourTime = timerPickerView.selectedRow(inComponent: 0)
+        let minuteTime = timerPickerView.selectedRow(inComponent: 2)
+        let secondTime = timerPickerView.selectedRow(inComponent: 4)
         
+        if secondTime == 0 && minuteTime == 0 && hourTime == 0 {
+            selectTimerLengthLabel.text = "Select timer length:"
+        } else {
+            selectTimerLengthLabel.text = String(format: "%02i:%02i:%02i", hourTime, minuteTime, secondTime)
+        }
+    }
+    
+    @IBAction func setTimerPressed(_ sender: UIButton) {
+        let hourTime = timerPickerView.selectedRow(inComponent: 0)
+        let hoursToSecondsTime = hourTime * 3600
+        let minuteTime = timerPickerView.selectedRow(inComponent: 2)
+        let minutesToSecondsTime = minuteTime * 60
+        let secondTime = timerPickerView.selectedRow(inComponent: 4)
+        let duration = hoursToSecondsTime + minutesToSecondsTime + secondTime
+        
+        onSetTime!(duration)
+    
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func cancelPressed(_ sender: UIButton) {
-        
         dismiss(animated: true)
     }
     
 }
 
 extension SetTimerViewController: UIPickerViewDelegate {
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
+        updateTimerLabelInSetTimer()
     }
-    
-    
 }
 
 extension SetTimerViewController: UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 6
     }
@@ -81,6 +100,4 @@ extension SetTimerViewController: UIPickerViewDataSource {
         default: return 0
         }
     }
-    
-    
 }
