@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import UserNotifications
 
 class TimerViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    let notificationManager = LocalNotifcationManager()
     let defaults = UserDefaults.standard
     let now = Date()
     private var completionTime: Date?
@@ -40,7 +42,12 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "setTimer", sender: self)
+        if duration == 0 {
+            performSegue(withIdentifier: "setTimer", sender: self)
+        } else {
+            //TODO: Add alert to ask if user would like to stop current timer
+            print(duration)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,8 +85,8 @@ class TimerViewController: UIViewController {
         let now = Date()
         completionTime = Calendar.current.date(byAdding: .second, value: duration, to: now)
         defaults.set(self.completionTime, forKey: "timeRemaining")
-        
-        
+        notificationManager.notifications = [TimerNotifications(id: "reminder-1", title: "Meowwww, timer finished!", timeRemaining: TimeInterval(duration))]
+        notificationManager.schedule()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
         timer.fire()
     }
@@ -102,6 +109,7 @@ class TimerViewController: UIViewController {
     
     @IBAction func cancelPressed(_ sender: UIButton) {
         completionTime = now
+        duration = 0
         print("cancel pressed \(now)")
         defaults.set(self.completionTime, forKey: "timeRemaining")
     }
@@ -112,8 +120,16 @@ class TimerViewController: UIViewController {
     
     private func playSound() {
         let url = Bundle.main.url(forResource: "kitty", withExtension: "mp3")
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try! AVAudioPlayer(contentsOf: url!)
+            player.play()
+        } catch {
+            print(error)
+        }
+       
     }
 }
 

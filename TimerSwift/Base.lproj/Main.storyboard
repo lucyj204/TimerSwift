@@ -5,48 +5,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kitty Timer-->
+        <!--Timer View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TimerViewController" customModule="TimerSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-cB-bih">
-                                <rect key="frame" x="31" y="164" width="352" height="514.5"/>
+                                <rect key="frame" x="31" y="188.5" width="352" height="519.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitty Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwy-o9-Ttr">
-                                        <rect key="frame" x="61" y="0.0" width="230.5" height="66"/>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="47"/>
+                                        <rect key="frame" x="48.5" y="0.0" width="255" height="62"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="47"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-th-Nl8">
-                                        <rect key="frame" x="0.0" y="66" width="352" height="448.5"/>
+                                        <rect key="frame" x="0.0" y="62" width="352" height="457.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty" translatesAutoresizingMaskIntoConstraints="NO" id="THw-1h-6Ue">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="233"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-10-zje">
-                                                <rect key="frame" x="109.5" y="298" width="133.5" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <rect key="frame" x="93" y="298" width="166" height="47.5"/>
+                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
-                                                <rect key="frame" x="89" y="401.5" width="174.5" height="47"/>
+                                                <rect key="frame" x="89" y="410.5" width="174.5" height="47"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-nC-4zV">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="47"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" buttonSize="large">
+                                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large" buttonSize="large">
                                                             <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </backgroundConfiguration>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="bold"/>
+                                                            <attributedString key="attributedTitle"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -56,8 +59,11 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-gD-GqQ">
                                                         <rect key="frame" x="115" y="0.0" width="59.5" height="47"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" buttonSize="large">
+                                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large" buttonSize="large">
                                                             <imageReference key="image" image="stop.fill" catalog="system" symbolScale="large"/>
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </backgroundConfiguration>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -79,7 +85,7 @@
                             <constraint firstItem="7Sz-cB-bih" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aWz-Mg-Ap9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Kitty Timer" id="utU-ex-vBY">
+                    <navigationItem key="navigationItem" id="utU-ex-vBY">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="T1G-VS-wXf">
                             <connections>
                                 <action selector="addTimerButtonPressed:" destination="BYZ-38-t0r" id="MYn-vR-xi7"/>
@@ -105,56 +111,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="149-WX-LnX">
-                                <rect key="frame" x="20" y="108" width="366" height="531"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="149-WX-LnX">
+                                <rect key="frame" x="20" y="382" width="374" height="439"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-pS-Tno">
-                                        <rect key="frame" x="46" y="0.0" width="320" height="482"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-as-ax4">
+                                        <rect key="frame" x="89" y="327" width="196" height="40.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="a1C-zo-bUI">
-                                                <rect key="frame" x="40" y="0.0" width="240.5" height="35"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select timer length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mp-Udy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240.5" height="35"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m87-RV-2lQ">
-                                                <rect key="frame" x="0.0" y="135" width="320" height="216"/>
-                                            </pickerView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-as-ax4">
-                                                <rect key="frame" x="62.5" y="451" width="195" height="31"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-SC-exA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="31"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Set Timer"/>
-                                                        <connections>
-                                                            <action selector="setTimerPressed:" destination="5Uz-ux-y7N" eventType="touchUpInside" id="1r8-ma-biP"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8H-1F-XJc">
-                                                        <rect key="frame" x="108.5" y="0.0" width="86.5" height="31"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                                        <connections>
-                                                            <action selector="cancelPressed:" destination="5Uz-ux-y7N" eventType="touchUpInside" id="n3x-cj-WbQ"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-SC-exA">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="40.5"/>
+                                                <color key="backgroundColor" red="0.76862745099999996" green="0.42352941179999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Set">
+                                                            <attributes>
+                                                                <font key="NSFont" size="20" name="Thonburi"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="setTimerPressed:" destination="5Uz-ux-y7N" eventType="touchUpInside" id="1r8-ma-biP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8H-1F-XJc">
+                                                <rect key="frame" x="109" y="0.0" width="87" height="40.5"/>
+                                                <color key="backgroundColor" red="0.76862745099999996" green="0.42352941179999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Cancel">
+                                                            <attributes>
+                                                                <font key="NSFont" size="20" name="Thonburi"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancelPressed:" destination="5Uz-ux-y7N" eventType="touchUpInside" id="n3x-cj-WbQ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m87-RV-2lQ">
+                                        <rect key="frame" x="27" y="85" width="320" height="216"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Select timer length:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mp-Udy">
+                                        <rect key="frame" x="67" y="56" width="240" height="29"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <viewLayoutGuide key="safeArea" id="di2-F0-HS4"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="m87-RV-2lQ" secondAttribute="centerX" id="18U-m6-HyB"/>
+                                    <constraint firstItem="hVS-as-ax4" firstAttribute="top" secondItem="m87-RV-2lQ" secondAttribute="bottom" constant="26" id="8zX-jv-gn7"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="top" secondItem="di2-F0-HS4" secondAttribute="top" constant="56" id="PUI-wd-cXx"/>
+                                    <constraint firstItem="m87-RV-2lQ" firstAttribute="top" secondItem="2Ym-mp-Udy" secondAttribute="bottom" id="YEN-ts-Rew"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="hVS-as-ax4" secondAttribute="centerX" id="eth-LL-F9Y"/>
+                                    <constraint firstItem="m87-RV-2lQ" firstAttribute="centerX" secondItem="149-WX-LnX" secondAttribute="centerX" id="gpF-tr-Y1d"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="leading" secondItem="di2-F0-HS4" secondAttribute="leading" constant="67" id="ngu-kg-WD0"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="149-WX-LnX" secondAttribute="centerX" id="nsP-KP-yxe"/>
+                                    <constraint firstItem="hVS-as-ax4" firstAttribute="leading" secondItem="di2-F0-HS4" secondAttribute="leading" constant="89" id="yLL-kF-jGB"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l0A-vI-91J"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="149-WX-LnX" firstAttribute="top" secondItem="l0A-vI-91J" secondAttribute="top" constant="382" id="0Ao-8Y-HLY"/>
+                            <constraint firstItem="149-WX-LnX" firstAttribute="centerY" secondItem="GPI-8g-mqU" secondAttribute="centerY" constant="180.5" id="d5p-wa-VFL"/>
+                            <constraint firstItem="149-WX-LnX" firstAttribute="trailing" secondItem="GPI-8g-mqU" secondAttribute="trailingMargin" id="gvN-s3-rO1"/>
+                            <constraint firstItem="149-WX-LnX" firstAttribute="leading" secondItem="GPI-8g-mqU" secondAttribute="leadingMargin" id="huU-E1-oNC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8AT-Eo-UKs"/>
                     <connections>
@@ -163,7 +196,6 @@
                         <outlet property="setTimerButton" destination="TxX-SC-exA" id="7NI-6K-MfM"/>
                         <outlet property="timerCreationView" destination="149-WX-LnX" id="51C-6i-vhJ"/>
                         <outlet property="timerPickerView" destination="m87-RV-2lQ" id="hAd-eg-RSp"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="updateTimer" id="bbc-zd-qc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVp-aZ-meA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -189,16 +221,9 @@
             <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tz9-t3-aJP"/>
-        <segue reference="bbc-zd-qc1"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="kitty" width="352" height="233"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

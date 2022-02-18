@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		135F90C427B3FE2F00C96510 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */; };
+		136AFC2327C00395007ED18B /* TimerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AFC2227C00395007ED18B /* TimerNotifications.swift */; };
 		13A53B1127A2E85500C8590C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1027A2E85500C8590C /* AppDelegate.swift */; };
 		13A53B1327A2E85500C8590C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1227A2E85500C8590C /* SceneDelegate.swift */; };
 		13A53B1527A2E85500C8590C /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1427A2E85500C8590C /* TimerViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
+		136AFC2227C00395007ED18B /* TimerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotifications.swift; sourceTree = "<group>"; };
 		13A53B0D27A2E85500C8590C /* TimerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A53B1027A2E85500C8590C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A53B1227A2E85500C8590C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				13A53B2627A9A8EE00C8590C /* kitty.mp3 */,
 				13A53B1B27A2E85700C8590C /* LaunchScreen.storyboard */,
 				13A53B1E27A2E85700C8590C /* Info.plist */,
+				136AFC2227C00395007ED18B /* TimerNotifications.swift */,
 			);
 			path = TimerSwift;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136AFC2327C00395007ED18B /* TimerNotifications.swift in Sources */,
 				13A53B1527A2E85500C8590C /* TimerViewController.swift in Sources */,
 				13A53B1127A2E85500C8590C /* AppDelegate.swift in Sources */,
 				13A53B1327A2E85500C8590C /* SceneDelegate.swift in Sources */,

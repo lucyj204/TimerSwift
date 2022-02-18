@@ -18,13 +18,25 @@ class SetTimerViewController: UIViewController {
     
     var onSetTime: ((_ data: Int) -> ())?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timerCreationView.layer.cornerRadius = 15
-        timerCreationView.layer.masksToBounds = true
+//        timerCreationView.layer.cornerRadius = 15
+//        timerCreationView.layer.masksToBounds = true
         timerPickerView.delegate = self
         timerPickerView.dataSource = self
+        timerPickerView.setValue(UIColor.white, forKey: "textColor")
+    
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     func updateTimerLabelInSetTimer() {
@@ -63,6 +75,10 @@ extension SetTimerViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateTimerLabelInSetTimer()
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        return NSAttributedString(string: data[row], attributes: <#T##[NSAttributedString.Key : Any]?#>)
+//    }
 }
 
 extension SetTimerViewController: UIPickerViewDataSource {
