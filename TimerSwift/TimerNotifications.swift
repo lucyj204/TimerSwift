@@ -8,7 +8,6 @@
 import Foundation
 import UserNotifications
 
-
 struct TimerNotifications {
     var id: String
     var title: String
@@ -38,7 +37,6 @@ class LocalNotifcationManager {
     }
     
     private func requestAuthorisation() {
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { authorised, error in
             if authorised == true && error == nil {
                 self.scheduleNotifications()

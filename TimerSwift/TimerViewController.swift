@@ -14,7 +14,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    
+
     let notificationManager = LocalNotifcationManager()
     let defaults = UserDefaults.standard
     let now = Date()
@@ -41,12 +41,21 @@ class TimerViewController: UIViewController {
         return false
     }
     
+    //MARK: - IBActions
+    
     @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
+        timeLabel.text = "00:00:00"
+        
+        let alert = UIAlertController(title: "Message from Kitty", message: "Please stop or reset the current timer in order to add a new one", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
         if duration == 0 {
             performSegue(withIdentifier: "setTimer", sender: self)
         } else {
-            //TODO: Add alert to ask if user would like to stop current timer
-            print(duration)
+           present(alert, animated: true, completion: nil)
+           print(duration)
         }
     }
     
@@ -60,25 +69,12 @@ class TimerViewController: UIViewController {
         }
     }
     
-    private func convertDataToTimeString(_ data: Int) -> () {
-        let hours = data / 3600
-        let minutes = (data / 60) % 60
-        let seconds = data % 60
-        let timeString = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
-        timeLabel.text = timeString
-    }
-
-    private func updateCountdownFollowingAppReOpened() {
-        let now = Date()
-        if completionTime! > now {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
-            timer.fire()
-            print("update countdown if\(now)")
-        } else {
-            timeLabel.text = "00:00:00"
-            defaults.set(self.completionTime, forKey: "timeRemaining")
-            print("update countdown else\(now)")
-        }
+    @IBAction func resetTimerButtonPressed(_ sender: UIButton) {
+        timeLabel.text = "00:00:00"
+        completionTime = Date()
+        duration = 0
+        defaults.set(self.completionTime, forKey: "timeRemaining")
+        timer.invalidate()
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -89,9 +85,37 @@ class TimerViewController: UIViewController {
         notificationManager.schedule()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
         timer.fire()
+               
     }
     
-    @objc func updateCountdown() {
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        completionTime = now
+        duration = 0
+        print("cancel pressed \(now)")
+        defaults.set(self.completionTime, forKey: "timeRemaining")
+    }
+    
+    
+    //MARK: - Timer Manager
+    
+    func updateCountdownFollowingAppReOpened() {
+        let now = Date()
+        if completionTime == nil {
+            timeLabel.text = "00:00:00"
+            duration = 0
+            print("update countdown if\(now)")
+        } else if completionTime! > now {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+            timer.fire()
+        } else {
+            timeLabel.text = "00:00:00"
+            defaults.set(completionTime, forKey: "timeRemaining")
+            duration = 0
+            print("update countdown else\(now)")
+        }
+    }
+    
+    @objc func updateCountdown()  {
         let now = Date()
         let timeRemaining = calculateTimeDifference(startTime: now, completionTime: completionTime!)
         let displayHours = Int(timeRemaining) / 3600
@@ -103,15 +127,17 @@ class TimerViewController: UIViewController {
         } else {
             timeLabel.text = "Meow! Timer finished!"
             playSound()
+            duration = 0
             timer.invalidate()
         }
     }
     
-    @IBAction func cancelPressed(_ sender: UIButton) {
-        completionTime = now
-        duration = 0
-        print("cancel pressed \(now)")
-        defaults.set(self.completionTime, forKey: "timeRemaining")
+    private func convertDataToTimeString(_ data: Int) -> () {
+        let hours = data / 3600
+        let minutes = (data / 60) % 60
+        let seconds = data % 60
+        let timeString = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+        timeLabel.text = timeString
     }
     
     @objc func dismissKeyboard() {
@@ -129,10 +155,9 @@ class TimerViewController: UIViewController {
         } catch {
             print(error)
         }
-       
     }
+    
 }
-
 
 func calculateTimeDifference(startTime: Date, completionTime: Date) -> TimeInterval {
     return completionTime.timeIntervalSinceNow - startTime.timeIntervalSinceNow
