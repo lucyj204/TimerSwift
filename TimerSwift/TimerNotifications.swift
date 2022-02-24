@@ -44,6 +44,10 @@ class LocalNotifcationManager {
         }
     }
     
+    func removeNotification(identifier: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
     private func scheduleNotifications() {
         for notification in notifications {
             let content = UNMutableNotificationContent()

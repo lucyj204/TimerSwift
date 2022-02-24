@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1343A7FD27C5145600456C5A /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1343A7FC27C5145600456C5A /* TimerData.swift */; };
 		135F90C427B3FE2F00C96510 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */; };
 		136AFC2327C00395007ED18B /* TimerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AFC2227C00395007ED18B /* TimerNotifications.swift */; };
 		13A53B1127A2E85500C8590C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1027A2E85500C8590C /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1343A7FC27C5145600456C5A /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		136AFC2227C00395007ED18B /* TimerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotifications.swift; sourceTree = "<group>"; };
 		13A53B0D27A2E85500C8590C /* TimerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,7 @@
 				13A53B1027A2E85500C8590C /* AppDelegate.swift */,
 				13A53B1227A2E85500C8590C /* SceneDelegate.swift */,
 				13A53B1427A2E85500C8590C /* TimerViewController.swift */,
+				1343A7FC27C5145600456C5A /* TimerData.swift */,
 				13A53B1627A2E85500C8590C /* Main.storyboard */,
 				135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */,
 				13A53B4E27AD7B2000C8590C /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				136AFC2327C00395007ED18B /* TimerNotifications.swift in Sources */,
 				13A53B1527A2E85500C8590C /* TimerViewController.swift in Sources */,
 				13A53B1127A2E85500C8590C /* AppDelegate.swift in Sources */,
+				1343A7FD27C5145600456C5A /* TimerData.swift in Sources */,
 				13A53B1327A2E85500C8590C /* SceneDelegate.swift in Sources */,
 				135F90C427B3FE2F00C96510 /* SetTimerViewController.swift in Sources */,
 			);

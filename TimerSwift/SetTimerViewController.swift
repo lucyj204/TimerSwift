@@ -7,28 +7,26 @@
 
 import UIKit
 
-
-class SetTimerViewController: UIViewController {
+class SetTimerViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var timerCreationView: UIView!
     @IBOutlet weak var selectTimerLengthLabel: UILabel!
     @IBOutlet weak var timerPickerView: UIPickerView!
     @IBOutlet weak var setTimerButton: UIButton!
     @IBOutlet weak var cancelTimerButton: UIButton!
+    @IBOutlet weak var timerNameTextField: UITextField!
     
-    var onSetTime: ((_ data: Int) -> ())?
-    
-    
+    var onSetTime: ((_ data: Int, _ name: String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        timerCreationView.layer.cornerRadius = 15
-//        timerCreationView.layer.masksToBounds = true
         timerPickerView.delegate = self
         timerPickerView.dataSource = self
         timerPickerView.setValue(UIColor.white, forKey: "textColor")
-    
+        timerNameTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -58,8 +56,9 @@ class SetTimerViewController: UIViewController {
         let minutesToSecondsTime = minuteTime * 60
         let secondTime = timerPickerView.selectedRow(inComponent: 4)
         let duration = hoursToSecondsTime + minutesToSecondsTime + secondTime
+        let name = timerNameTextField.text!
         
-        onSetTime!(duration)
+        onSetTime!(duration, name)
     
         dismiss(animated: true, completion: nil)
     }
@@ -69,16 +68,20 @@ class SetTimerViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
 
 extension SetTimerViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateTimerLabelInSetTimer()
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-//        return NSAttributedString(string: data[row], attributes: <#T##[NSAttributedString.Key : Any]?#>)
-//    }
 }
 
 extension SetTimerViewController: UIPickerViewDataSource {
@@ -107,7 +110,6 @@ extension SetTimerViewController: UIPickerViewDataSource {
         default: return ""
         }
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {

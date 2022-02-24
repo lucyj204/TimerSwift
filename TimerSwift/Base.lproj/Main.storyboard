@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-cB-bih">
-                                <rect key="frame" x="31" y="188.5" width="352" height="519.5"/>
+                                <rect key="frame" x="36.5" y="134.5" width="341" height="627.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitty Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwy-o9-Ttr">
-                                        <rect key="frame" x="48.5" y="0.0" width="255" height="62"/>
+                                        <rect key="frame" x="43" y="0.0" width="255" height="62"/>
                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="47"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-th-Nl8">
-                                        <rect key="frame" x="0.0" y="62" width="352" height="457.5"/>
+                                        <rect key="frame" x="0.0" y="62" width="341" height="565.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty" translatesAutoresizingMaskIntoConstraints="NO" id="THw-1h-6Ue">
-                                                <rect key="frame" x="0.0" y="0.0" width="352" height="233"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty-timer-image" translatesAutoresizingMaskIntoConstraints="NO" id="THw-1h-6Ue">
+                                                <rect key="frame" x="0.0" y="0.0" width="341" height="341"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-10-zje">
-                                                <rect key="frame" x="93" y="298" width="166" height="47.5"/>
+                                                <rect key="frame" x="87.5" y="406" width="166" height="47.5"/>
                                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
-                                                <rect key="frame" x="37.5" y="410.5" width="277.5" height="47"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
+                                                <rect key="frame" x="82" y="518.5" width="177.5" height="47"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-nC-4zV">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="47"/>
@@ -57,7 +57,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-gD-GqQ">
-                                                        <rect key="frame" x="115" y="0.0" width="59.5" height="47"/>
+                                                        <rect key="frame" x="118" y="0.0" width="59.5" height="47"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" cornerStyle="large" buttonSize="large">
                                                             <imageReference key="image" image="stop.fill" catalog="system" symbolScale="large"/>
@@ -68,20 +68,6 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="cancelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfX-ht-XXs"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeW-jv-9Cx">
-                                                        <rect key="frame" x="232.5" y="0.0" width="45" height="47"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
-                                                            <imageReference key="image" image="gobackward" catalog="system" symbolScale="large"/>
-                                                            <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </backgroundConfiguration>
-                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="resetTimerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aol-7i-7Jj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -110,12 +96,13 @@
                         <outlet property="startButton" destination="rS2-nC-4zV" id="NHn-Hx-Qnw"/>
                         <outlet property="stopButton" destination="kF6-gD-GqQ" id="eWL-6M-nZK"/>
                         <outlet property="timeLabel" destination="2QK-10-zje" id="fxm-pK-BMZ"/>
+                        <outlet property="timerNameLabel" destination="Wwy-o9-Ttr" id="B56-hY-6vw"/>
                         <segue destination="5Uz-ux-y7N" kind="presentation" identifier="setTimer" id="Tz9-t3-aJP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1114.4927536231885" y="83.705357142857139"/>
         </scene>
         <!--Set Timer View Controller-->
         <scene sceneID="4gg-Ng-RsM">
@@ -128,8 +115,23 @@
                             <view clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="149-WX-LnX">
                                 <rect key="frame" x="20" y="382" width="374" height="439"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Timer Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-IU-PRa">
+                                        <rect key="frame" x="74" y="29" width="211" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m87-RV-2lQ">
+                                        <rect key="frame" x="27" y="127" width="320" height="216"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Select timer length:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mp-Udy">
+                                        <rect key="frame" x="59" y="90" width="240" height="29"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-as-ax4">
-                                        <rect key="frame" x="89" y="327" width="196" height="40.5"/>
+                                        <rect key="frame" x="89" y="351" width="196" height="40.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-SC-exA">
                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="40.5"/>
@@ -169,27 +171,18 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m87-RV-2lQ">
-                                        <rect key="frame" x="27" y="85" width="320" height="216"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Select timer length:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mp-Udy">
-                                        <rect key="frame" x="67" y="56" width="240" height="29"/>
-                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="di2-F0-HS4"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="m87-RV-2lQ" secondAttribute="centerX" id="18U-m6-HyB"/>
-                                    <constraint firstItem="hVS-as-ax4" firstAttribute="top" secondItem="m87-RV-2lQ" secondAttribute="bottom" constant="26" id="8zX-jv-gn7"/>
-                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="top" secondItem="di2-F0-HS4" secondAttribute="top" constant="56" id="PUI-wd-cXx"/>
-                                    <constraint firstItem="m87-RV-2lQ" firstAttribute="top" secondItem="2Ym-mp-Udy" secondAttribute="bottom" id="YEN-ts-Rew"/>
-                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="hVS-as-ax4" secondAttribute="centerX" id="eth-LL-F9Y"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="m87-RV-2lQ" secondAttribute="centerX" constant="-8" id="18U-m6-HyB"/>
+                                    <constraint firstItem="hVS-as-ax4" firstAttribute="top" secondItem="m87-RV-2lQ" secondAttribute="bottom" constant="8" id="8zX-jv-gn7"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="top" secondItem="di2-F0-HS4" secondAttribute="top" constant="90" id="PUI-wd-cXx"/>
+                                    <constraint firstItem="m87-RV-2lQ" firstAttribute="top" secondItem="2Ym-mp-Udy" secondAttribute="bottom" constant="8" id="YEN-ts-Rew"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="hVS-as-ax4" secondAttribute="centerX" constant="-8" id="eth-LL-F9Y"/>
                                     <constraint firstItem="m87-RV-2lQ" firstAttribute="centerX" secondItem="149-WX-LnX" secondAttribute="centerX" id="gpF-tr-Y1d"/>
-                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="leading" secondItem="di2-F0-HS4" secondAttribute="leading" constant="67" id="ngu-kg-WD0"/>
-                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="149-WX-LnX" secondAttribute="centerX" id="nsP-KP-yxe"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="leading" secondItem="di2-F0-HS4" secondAttribute="leading" constant="59" id="ngu-kg-WD0"/>
+                                    <constraint firstItem="2Ym-mp-Udy" firstAttribute="centerX" secondItem="149-WX-LnX" secondAttribute="centerX" constant="-8" id="nsP-KP-yxe"/>
                                     <constraint firstItem="hVS-as-ax4" firstAttribute="leading" secondItem="di2-F0-HS4" secondAttribute="leading" constant="89" id="yLL-kF-jGB"/>
                                 </constraints>
                             </view>
@@ -209,12 +202,13 @@
                         <outlet property="selectTimerLengthLabel" destination="2Ym-mp-Udy" id="C1w-2S-A0U"/>
                         <outlet property="setTimerButton" destination="TxX-SC-exA" id="7NI-6K-MfM"/>
                         <outlet property="timerCreationView" destination="149-WX-LnX" id="51C-6i-vhJ"/>
+                        <outlet property="timerNameTextField" destination="kq3-IU-PRa" id="keT-qX-CXM"/>
                         <outlet property="timerPickerView" destination="m87-RV-2lQ" id="hAd-eg-RSp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVp-aZ-meA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="84"/>
+            <point key="canvasLocation" x="1863.7681159420292" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qkv-Kp-oRm">
@@ -232,12 +226,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gll-n5-JCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-416" y="84"/>
         </scene>
     </scenes>
     <resources>
-        <image name="gobackward" catalog="system" width="121" height="128"/>
-        <image name="kitty" width="352" height="233"/>
+        <image name="kitty-timer-image" width="341" height="341"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
     </resources>
