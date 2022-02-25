@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-cB-bih">
-                                <rect key="frame" x="36.5" y="134.5" width="341" height="627.5"/>
+                                <rect key="frame" x="36.5" y="102" width="341" height="692.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitty Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwy-o9-Ttr">
-                                        <rect key="frame" x="43" y="0.0" width="255" height="62"/>
-                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="47"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-th-Nl8">
-                                        <rect key="frame" x="0.0" y="62" width="341" height="565.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="692.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty-timer-image" translatesAutoresizingMaskIntoConstraints="NO" id="THw-1h-6Ue">
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="341"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitty Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwy-o9-Ttr">
+                                                <rect key="frame" x="43" y="406" width="255" height="62"/>
+                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="47"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-10-zje">
-                                                <rect key="frame" x="87.5" y="406" width="166" height="47.5"/>
+                                                <rect key="frame" x="87.5" y="533" width="166" height="47.5"/>
                                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
-                                                <rect key="frame" x="82" y="518.5" width="177.5" height="47"/>
+                                                <rect key="frame" x="82" y="645.5" width="177.5" height="47"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-nC-4zV">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="47"/>

@@ -70,11 +70,11 @@
 				1343A7FC27C5145600456C5A /* TimerData.swift */,
 				13A53B1627A2E85500C8590C /* Main.storyboard */,
 				135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */,
+				136AFC2227C00395007ED18B /* TimerNotifications.swift */,
 				13A53B4E27AD7B2000C8590C /* Assets.xcassets */,
 				13A53B2627A9A8EE00C8590C /* kitty.mp3 */,
 				13A53B1B27A2E85700C8590C /* LaunchScreen.storyboard */,
 				13A53B1E27A2E85700C8590C /* Info.plist */,
-				136AFC2227C00395007ED18B /* TimerNotifications.swift */,
 			);
 			path = TimerSwift;
 			sourceTree = "<group>";

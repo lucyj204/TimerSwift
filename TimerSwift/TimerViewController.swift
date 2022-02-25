@@ -19,15 +19,16 @@ class TimerViewController: UIViewController {
     private var timer = Timer()
     private var player: AVAudioPlayer!
     
-    let now = Date()
+    private var id: UUID = UUID()
     private var completionTime: Date = Date()
-    var name: String?
+    private var name: String?
+    private var startTime: Date = Date()
     private var duration: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateCountdownFollowingAppReOpened()
+        loadTimerData()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -40,8 +41,6 @@ class TimerViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return false
     }
-    
-    //MARK: - IBActions
     
     @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
         timeLabel.text = "00:00:00"
@@ -72,12 +71,12 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
-        let now = Date()
-        let name = timerNameLabel.text ?? ""
-        completionTime = Calendar.current.date(byAdding: .second, value: duration, to: now)!
-        addTimerData(TimerData(name: name, completionTime: completionTime))
+        startTime = Date()
+        name = timerNameLabel.text ?? ""
+        completionTime = Calendar.current.date(byAdding: .second, value: duration, to: startTime)!
+        saveTimerData(TimerData(id: id, name: name!, startTime: startTime, completionTime: completionTime))
         
-        notificationManager.notifications = [TimerNotifications(id: "reminder-1", title: "Meowwww, \(name) Timer finished!", timeRemaining: TimeInterval(duration))]
+        notificationManager.notifications = [TimerNotifications(id: "reminder-1", title: "Meowwww, \(name!) Timer finished!", timeRemaining: TimeInterval(duration))]
         notificationManager.schedule()
         
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
@@ -86,30 +85,21 @@ class TimerViewController: UIViewController {
     
     @IBAction func cancelPressed(_ sender: UIButton) {
         timeLabel.text = "00:00:00"
-        completionTime = now
+        completionTime = Date()
         name = "Kitty Timer"
         timerNameLabel.text = name
-        updateTimerData(TimerData(name: name!, completionTime: completionTime))
+        saveTimerData(TimerData(id: id, name: name!, startTime: startTime, completionTime: completionTime))
         notificationManager.removeNotification(identifier: "reminder-1")
         duration = 0
         timer.invalidate()
     }
     
-    func addTimerData(_ timerData: TimerData) {
+    func saveTimerData(_ timerData: TimerData) {
         do {
-            let data = try JSONEncoder().encode(TimerData(name: timerData.name, completionTime: timerData.completionTime))
+            let data = try JSONEncoder().encode(TimerData(id: id, name: name!, startTime: startTime, completionTime: timerData.completionTime))
             UserDefaults.standard.set(data, forKey: "timerData")
         } catch {
-            print("Error encoding data when adding \(error.localizedDescription)")
-        }
-    }
-    
-    func updateTimerData(_ timerData: TimerData) {
-        do {
-            let data = try JSONEncoder().encode(TimerData(name: timerData.name, completionTime: timerData.completionTime))
-            UserDefaults.standard.set(data, forKey: "timerData")
-        } catch {
-            print("Error encoding data when updating \(error.localizedDescription)")
+            print("Error encoding data \(error.localizedDescription)")
         }
     }
     
@@ -118,19 +108,20 @@ class TimerViewController: UIViewController {
             do {
                 let timerDataObject = try JSONDecoder().decode(TimerData.self, from: data)
                 completion(timerDataObject)
+                print(timerDataObject)
             } catch {
                 print("Error decoding data \(error.localizedDescription)")
             }
         }
     }
     
-    //MARK: - Timer Manager
-    
-    //TODO: timer data needed here - also need to look at how this is implemented as seems strange to put this is viewDidLoad with this name - sometimes the app has not been reopened but this function is still being called.
-    func updateCountdownFollowingAppReOpened() {
+    func loadTimerData() {
         getTimerData() { timerData in
             self.completionTime = timerData.completionTime!
             self.name = timerData.name
+            self.id = timerData.id
+            self.startTime = timerData.startTime ?? Date()
+            print(timerData)
         }
         
         let now = Date()
@@ -171,7 +162,6 @@ class TimerViewController: UIViewController {
     
     private func playSound() {
         let url = Bundle.main.url(forResource: "kitty", withExtension: "mp3")
-        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
             try AVAudioSession.sharedInstance().setActive(true)

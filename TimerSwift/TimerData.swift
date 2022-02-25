@@ -8,11 +8,10 @@
 import Foundation
 
 struct TimerData: Codable {
-//    let id: Int
+    let id: UUID
     var name: String
-//    let startTime: Date?
+    let startTime: Date?
     var completionTime: Date?
-
 }
 
 

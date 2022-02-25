@@ -37,7 +37,7 @@ class SetTimerViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func updateTimerLabelInSetTimer() {
+    func updateSelectedTimeLabel() {
         let hourTime = timerPickerView.selectedRow(inComponent: 0)
         let minuteTime = timerPickerView.selectedRow(inComponent: 2)
         let secondTime = timerPickerView.selectedRow(inComponent: 4)
@@ -50,6 +50,8 @@ class SetTimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func setTimerPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Please select timer duration", preferredStyle: .alert)
+        
         let hourTime = timerPickerView.selectedRow(inComponent: 0)
         let hoursToSecondsTime = hourTime * 3600
         let minuteTime = timerPickerView.selectedRow(inComponent: 2)
@@ -58,8 +60,12 @@ class SetTimerViewController: UIViewController, UITextFieldDelegate {
         let duration = hoursToSecondsTime + minutesToSecondsTime + secondTime
         let name = timerNameTextField.text!
         
-        onSetTime!(duration, name)
-    
+        if duration != 0 {
+            onSetTime!(duration, name)
+        } else {
+            present(alert, animated: true, completion: nil)
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -78,13 +84,11 @@ class SetTimerViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension SetTimerViewController: UIPickerViewDelegate {
+extension SetTimerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        updateTimerLabelInSetTimer()
+        updateSelectedTimeLabel()
     }
-}
-
-extension SetTimerViewController: UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 6
     }
@@ -119,3 +123,5 @@ extension SetTimerViewController: UIPickerViewDataSource {
         }
     }
 }
+
+
