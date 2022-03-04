@@ -27,7 +27,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadTimerData()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -42,10 +41,10 @@ class TimerViewController: UIViewController {
         return false
     }
     
-    @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addNewTimerPressed(_ sender: UIButton) {
         timeLabel.text = "00:00:00"
         
-        let alert = UIAlertController(title: "Message from Kitty", message: "Please stop or reset the current timer in order to add a new one", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Message from Kitty", message: "Please stop the current timer in order to add a new one 😺", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             alert.dismiss(animated: true, completion: nil)
         }))
@@ -53,6 +52,26 @@ class TimerViewController: UIViewController {
         if duration == 0 {
             performSegue(withIdentifier: "setTimer", sender: self)
         } else {
+            convertDataToTimeString(duration)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
+        timeLabel.text = "00:00:00"
+        
+        
+        let alert = UIAlertController(title: "Message from Kitty", message: "Please stop the current timer in order to add a new one 😺", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        if duration == 0 {
+            performSegue(withIdentifier: "setTimer", sender: self)
+        } else {
+            convertDataToTimeString(duration)
+            print(duration)
             present(alert, animated: true, completion: nil)
         }
     }
@@ -73,14 +92,25 @@ class TimerViewController: UIViewController {
     @IBAction func startPressed(_ sender: UIButton) {
         startTime = Date()
         name = timerNameLabel.text ?? ""
-        completionTime = Calendar.current.date(byAdding: .second, value: duration, to: startTime)!
-        saveTimerData(TimerData(id: id, name: name!, startTime: startTime, completionTime: completionTime))
         
-        notificationManager.notifications = [TimerNotifications(id: "reminder-1", title: "Meowwww, \(name!) Timer finished!", timeRemaining: TimeInterval(duration))]
-        notificationManager.schedule()
+        let alert = UIAlertController(title: "Message from Kitty", message: "Please add a timer 😺", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
         
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
-        timer.fire()
+        if duration > 0 {
+            completionTime = Calendar.current.date(byAdding: .second, value: duration, to: startTime)!
+            saveTimerData(TimerData(id: id, name: name!, startTime: startTime, completionTime: completionTime))
+            
+            notificationManager.notifications = [TimerNotifications(id: "reminder-1", title: "Meowwww, \(name!) Timer finished!", timeRemaining: TimeInterval(duration))]
+            notificationManager.schedule()
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+            timer.fire()
+        } else {
+            present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
@@ -175,7 +205,6 @@ class TimerViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
 }
 
 func calculateTimeDifference(startTime: Date, completionTime: Date) -> TimeInterval {
