@@ -57,25 +57,6 @@ class TimerViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func addTimerButtonPressed(_ sender: UIBarButtonItem) {
-        timeLabel.text = "00:00:00"
-        
-        
-        let alert = UIAlertController(title: "Message from Kitty", message: "Please stop the current timer in order to add a new one 😺", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        if duration == 0 {
-            performSegue(withIdentifier: "setTimer", sender: self)
-        } else {
-            convertDataToTimeString(duration)
-            print(duration)
-            present(alert, animated: true, completion: nil)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "setTimer" {
             let timerPicker = segue.destination as! SetTimerViewController
@@ -191,11 +172,16 @@ class TimerViewController: UIViewController {
     }
     
     private func playSound() {
-        let url = Bundle.main.url(forResource: "kitty", withExtension: "mp3")
+        
+        let kittySounds = ["kitty", "kitty-begging", "little-cat"]
+        
+        guard let kittySound = kittySounds.randomElement(),
+              let kittySoundUrl = Bundle.main.url(forResource: kittySound, withExtension: "mp3") else { return }
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
             try AVAudioSession.sharedInstance().setActive(true)
-            player = try! AVAudioPlayer(contentsOf: url!)
+            player = try! AVAudioPlayer(contentsOf: kittySoundUrl)
             player.play()
         } catch {
             print(error)

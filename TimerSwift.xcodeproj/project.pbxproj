@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1343A7FD27C5145600456C5A /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1343A7FC27C5145600456C5A /* TimerData.swift */; };
+		134C717427D241BF00DD3100 /* little-cat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 134C717327D241BF00DD3100 /* little-cat.mp3 */; };
+		134C717627D241C700DD3100 /* kitty-begging.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 134C717527D241C700DD3100 /* kitty-begging.mp3 */; };
 		135F90C427B3FE2F00C96510 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */; };
 		136AFC2327C00395007ED18B /* TimerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AFC2227C00395007ED18B /* TimerNotifications.swift */; };
 		13A53B1127A2E85500C8590C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A53B1027A2E85500C8590C /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		1343A7FC27C5145600456C5A /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
+		134C717327D241BF00DD3100 /* little-cat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "little-cat.mp3"; sourceTree = "<group>"; };
+		134C717527D241C700DD3100 /* kitty-begging.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "kitty-begging.mp3"; sourceTree = "<group>"; };
 		135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		136AFC2227C00395007ED18B /* TimerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotifications.swift; sourceTree = "<group>"; };
 		13A53B0D27A2E85500C8590C /* TimerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		134C717727D6657100DD3100 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				134C717327D241BF00DD3100 /* little-cat.mp3 */,
+				134C717527D241C700DD3100 /* kitty-begging.mp3 */,
+				13A53B2627A9A8EE00C8590C /* kitty.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		13A53B0427A2E85500C8590C = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +86,7 @@
 				135F90C327B3FE2F00C96510 /* SetTimerViewController.swift */,
 				136AFC2227C00395007ED18B /* TimerNotifications.swift */,
 				13A53B4E27AD7B2000C8590C /* Assets.xcassets */,
-				13A53B2627A9A8EE00C8590C /* kitty.mp3 */,
+				134C717727D6657100DD3100 /* Sounds */,
 				13A53B1B27A2E85700C8590C /* LaunchScreen.storyboard */,
 				13A53B1E27A2E85700C8590C /* Info.plist */,
 			);
@@ -139,8 +153,10 @@
 			files = (
 				13A53B2727A9A8EF00C8590C /* kitty.mp3 in Resources */,
 				13A53B1D27A2E85700C8590C /* LaunchScreen.storyboard in Resources */,
+				134C717627D241C700DD3100 /* kitty-begging.mp3 in Resources */,
 				13A53B1827A2E85500C8590C /* Main.storyboard in Resources */,
 				13A53B4F27AD7B2000C8590C /* Assets.xcassets in Resources */,
+				134C717427D241BF00DD3100 /* little-cat.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-cB-bih">
-                                <rect key="frame" x="36.5" y="160" width="341" height="576.5"/>
+                                <rect key="frame" x="36.5" y="162" width="341" height="572.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-th-Nl8">
-                                        <rect key="frame" x="0.0" y="0.0" width="341" height="576.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="572.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty-timer-image" translatesAutoresizingMaskIntoConstraints="NO" id="THw-1h-6Ue">
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="341"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kitty Timer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwy-o9-Ttr">
-                                                <rect key="frame" x="75.5" y="377" width="190" height="41.5"/>
-                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="34"/>
+                                                <rect key="frame" x="90" y="377" width="161" height="39.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-10-zje">
-                                                <rect key="frame" x="95" y="454.5" width="151.5" height="39"/>
-                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="32"/>
+                                                <rect key="frame" x="108" y="452.5" width="125" height="37"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="Sus-KA-Vvd">
-                                                <rect key="frame" x="44.5" y="529.5" width="252" height="47"/>
+                                                <rect key="frame" x="44.5" y="525.5" width="252" height="47"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-nC-4zV">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="47"/>
@@ -99,13 +99,7 @@
                             <constraint firstItem="7Sz-cB-bih" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aWz-Mg-Ap9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="utU-ex-vBY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="T1G-VS-wXf">
-                            <connections>
-                                <action selector="addTimerButtonPressed:" destination="BYZ-38-t0r" id="MYn-vR-xi7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="utU-ex-vBY"/>
                     <connections>
                         <outlet property="startButton" destination="rS2-nC-4zV" id="NHn-Hx-Qnw"/>
                         <outlet property="stopButton" destination="kF6-gD-GqQ" id="eWL-6M-nZK"/>
@@ -133,10 +127,10 @@
                                         <rect key="frame" x="27" y="71" width="320" height="216"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-as-ax4">
-                                        <rect key="frame" x="89" y="311" width="203" height="38.5"/>
+                                        <rect key="frame" x="89" y="311" width="195" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-SC-exA">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="38.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="37"/>
                                                 <color key="backgroundColor" red="0.76862745099999996" green="0.42352941179999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
@@ -144,7 +138,7 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Set">
                                                             <attributes>
-                                                                <font key="NSFont" size="20" name="Verdana"/>
+                                                                <font key="NSFont" size="20" name="Helvetica"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -155,7 +149,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8H-1F-XJc">
-                                                <rect key="frame" x="112.5" y="0.0" width="90.5" height="38.5"/>
+                                                <rect key="frame" x="108.5" y="0.0" width="86.5" height="37"/>
                                                 <color key="backgroundColor" red="0.76862745099999996" green="0.42352941179999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
@@ -163,7 +157,7 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Cancel">
                                                             <attributes>
-                                                                <font key="NSFont" size="20" name="Verdana"/>
+                                                                <font key="NSFont" size="20" name="Helvetica"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -176,7 +170,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter Timer Name" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-IU-PRa">
-                                        <rect key="frame" x="79" y="29" width="216" height="34"/>
+                                        <rect key="frame" x="87" y="29" width="200" height="34"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                     </textField>
